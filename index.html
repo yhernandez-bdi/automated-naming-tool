@@ -339,6 +339,16 @@
                         </select>
                     </div>
                     
+                    <div class="form-group" id="social-platform-group" style="display: none;">
+                        <label for="social-platform">Social Platform (Social Only)</label>
+                        <select id="social-platform" onchange="generateNames()">
+                            <option value="">Select Social Platform</option>
+                            <option value="Meta">Meta</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="Snapchat">Snapchat</option>
+                        </select>
+                    </div>
+                    
                     <div class="form-group" id="tactic-group" style="display: none;">
                         <label for="tactic">Tactic (DSP Only)</label>
                         <select id="tactic" onchange="generateNames()">
@@ -519,20 +529,22 @@
     <script>
         const platformConfig = {
             'Social': {
-                audiences: ['TOFU', 'MOFU', 'BOFU', 'TOFU/MOFU'],
+                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'ALL'],
                 audienceTypes: {
                     'TOFU': ['Lookalikes', 'Interests', 'Wiland'],
                     'MOFU': ['Retarget', 'Lapsed', 'Interests', 'Wiland'],
-                    'BOFU': ['Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors'],
+                    'ALL': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors'],
                     'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors']
                 }
             },
             'DSP': {
-                audiences: ['TOFU', 'MOFU', 'BOFU', 'TOFU/MOFU'],
+                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'ALL'],
                 audienceTypes: {
                     'TOFU': ['Lookalikes', 'Interests', 'Wiland'],
                     'MOFU': ['Retarget', 'Lapsed', 'Interests', 'Wiland'],
-                    'BOFU': ['Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors'],
+                    'ALL': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors'],
                     'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors']
                 }
             },
@@ -560,8 +572,18 @@
 
         function updatePlatformOptions() {
             const platform = document.getElementById('platform').value;
+            const socialPlatformGroup = document.getElementById('social-platform-group');
             const tacticGroup = document.getElementById('tactic-group');
             
+            // Show/hide Social platform dropdown
+            if (platform === 'Social') {
+                socialPlatformGroup.style.display = 'block';
+            } else {
+                socialPlatformGroup.style.display = 'none';
+                document.getElementById('social-platform').value = '';
+            }
+            
+            // Show/hide DSP tactic dropdown
             if (platform === 'DSP') {
                 tacticGroup.style.display = 'block';
             } else {
@@ -711,13 +733,13 @@
                 'Social': [
                     'TOFU targets cold audiences (LALs, Interests, Wiland)',
                     'MOFU targets warm audiences (retargeting, leads, lapsed)',
-                    'BOFU targets hot audiences (donors, monthly donors)',
-                    'TOFU/MOFU can combine multiple audience types'
+                    'MOFU/BOFU targets both warm and hot audiences',
+                    'ALL can combine multiple audience types'
                 ],
                 'DSP': [
                     'Uses Line Items and Groups structure',
                     'TOFU/MOFU can be combined for efficiency',
-                    'BOFU separate for donor-focused messaging',
+                    'MOFU/BOFU separate for donor-focused messaging',
                     'Supports Display, Native, Audio, and CTV/OTT tactics'
                 ],
                 'Search': [
@@ -876,7 +898,7 @@
             const endDateOther = document.getElementById('end-date-other').value;
             const testing = getTestingStatus();
 
-            // Start generating names as soon as we have client - CHANGED TO GENERATE IMMEDIATELY
+            // Start generating names as soon as we have client
             if (!client) {
                 document.getElementById('results').style.display = 'none';
                 return;
@@ -901,8 +923,24 @@
                         html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}')">Copy</button></div>`;
                     }
                     
+                    const audienceType = document.getElementById('audience-type').value;
+                    const targetingDetails = document.getElementById('targeting-details').value;
                     const audienceName = buildAudienceName();
-                    if (audienceName) {
+                    
+                    // If audience is selected but audience type is not, show simple ad group name
+                    if (audience && !audienceType) {
+                        const adGroupName = `${client} ${audience}`;
+                        html += `<div class="result-label">Ad Group Name:</div>`;
+                        html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}')">Copy</button></div>`;
+                    }
+                    // If audience type is selected but targeting details is not, show ad group name with audience type
+                    else if (audienceType && !targetingDetails && audienceType !== 'N/A') {
+                        const adGroupName = `${client} ${audienceType}`;
+                        html += `<div class="result-label">Ad Group Name:</div>`;
+                        html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}')">Copy</button></div>`;
+                    }
+                    // If we have a complete audience name from buildAudienceName(), show it as Ad Set
+                    else if (audienceName) {
                         if (audienceName.startsWith('Error:')) {
                             html += `<div class="result-label">Ad Set (Audience):</div>`;
                             html += `<div class="result-item" style="color: red; border-left-color: red;">${audienceName}</div>`;
@@ -1007,7 +1045,7 @@
 
         function resetForm() {
             const fields = [
-                'client', 'plan', 'platform', 'tactic', 'campaign', 'audience', 
+                'client', 'plan', 'platform', 'social-platform', 'tactic', 'campaign', 'audience', 
                 'audience-type', 'targeting-details', 'targeting-other', 'month', 
                 'creative-name', 'creative-other', 'end-date', 'end-date-other'
             ];
@@ -1024,7 +1062,7 @@
             document.getElementById('control').checked = false;
             
             const conditionalGroups = [
-                'tactic-group', 'targeting-details-group', 'targeting-other-group',
+                'social-platform-group', 'tactic-group', 'targeting-details-group', 'targeting-other-group',
                 'creative-other-group', 'end-date-other-group'
             ];
             
