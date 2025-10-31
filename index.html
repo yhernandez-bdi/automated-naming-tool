@@ -272,7 +272,7 @@
                 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="client">Client Code *</label>
+                        <label for="client">CLIENT CODE *</label>
                         <select id="client" onchange="generateNames()">
                             <option value="">Select Client</option>
                             <option value="ARM">ARM</option>
@@ -320,7 +320,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="plan">Plan/Fiscal Year *</label>
+                        <label for="plan">PLAN/FISCAL YEAR *</label>
                         <select id="plan" onchange="generateNames()">
                             <option value="">Select Plan</option>
                             <option value="FY25">FY25</option>
@@ -329,39 +329,40 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="platform">Ad Platform *</label>
-                        <select id="platform" onchange="updatePlatformOptions()">
-                            <option value="">Select Platform</option>
+                        <label for="channel">CHANNEL *</label>
+                        <select id="channel" onchange="updateChannelOptions()">
+                            <option value="">Select Channel</option>
                             <option value="Social">Social</option>
-                            <option value="DSP">DSP (Display, Native, CTV/OTT)</option>
+                            <option value="DSP">DSP</option>
                             <option value="Search">Search</option>
                             <option value="YouTube">YouTube</option>
                         </select>
                     </div>
                     
-                    <div class="form-group" id="social-platform-group" style="display: none;">
-                        <label for="social-platform">Social Platform (Social Only)</label>
-                        <select id="social-platform" onchange="generateNames()">
-                            <option value="">Select Social Platform</option>
+                    <div class="form-group" id="platform-group" style="display: none;">
+                        <label for="platform">SOCIAL PLATFORM</label>
+                        <select id="platform" onchange="generateNames()">
+                            <option value="">Select Platform</option>
                             <option value="Meta">Meta</option>
                             <option value="TikTok">TikTok</option>
                             <option value="Snapchat">Snapchat</option>
+                            <option value="LinkedIn">LinkedIn</option>
                         </select>
                     </div>
                     
                     <div class="form-group" id="tactic-group" style="display: none;">
-                        <label for="tactic">Tactic (DSP Only)</label>
+                        <label for="tactic">DSP TACTIC</label>
                         <select id="tactic" onchange="generateNames()">
                             <option value="">Select Tactic</option>
                             <option value="Display">Display</option>
                             <option value="Native">Native</option>
-                            <option value="Audio">Audio</option>
                             <option value="CTV/OTT">CTV/OTT</option>
+                            <option value="Audio">Audio</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="campaign">Campaign *</label>
+                        <label for="campaign">CAMPAIGN *</label>
                         <select id="campaign" onchange="updateAudienceOptions()">
                             <option value="">Select Campaign</option>
                             <option value="Main Program">Main Program</option>
@@ -371,34 +372,39 @@
                         </select>
                     </div>
                     
+                    <div class="form-group" id="campaign-custom-group" style="display: none;">
+                        <label for="campaign-custom">CAMPAIGN NAME (AWARENESS)</label>
+                        <input type="text" id="campaign-custom" placeholder="Enter custom campaign name" onkeyup="generateNames()">
+                    </div>
+                    
                     <div class="form-group">
-                        <label for="audience">Audience</label>
+                        <label for="audience">AUDIENCE</label>
                         <select id="audience" onchange="updateAudienceTypeOptions()">
                             <option value="">Select Audience</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="audience-type">Audience Type</label>
+                        <label for="audience-type">AUDIENCE TYPE</label>
                         <select id="audience-type" onchange="updateTargetingDetails()">
                             <option value="">Select Type</option>
                         </select>
                     </div>
                     
                     <div class="form-group" id="targeting-details-group" style="display: none;">
-                        <label for="targeting-details">Targeting Details</label>
+                        <label for="targeting-details">TARGETING DETAILS</label>
                         <select id="targeting-details" onchange="checkTargetingOther()">
                             <option value="">Select Details</option>
                         </select>
                     </div>
                     
                     <div class="form-group" id="targeting-other-group" style="display: none;">
-                        <label for="targeting-other">Custom Targeting Details</label>
+                        <label for="targeting-other">CUSTOM TARGETING DETAILS</label>
                         <input type="text" id="targeting-other" placeholder="LAL ##% - ## days" onkeyup="generateNames()">
                     </div>
                     
                     <div class="form-group">
-                        <label for="month">Month Launching *</label>
+                        <label for="month">MONTH LAUNCHING *</label>
                         <select id="month" onchange="generateNames()">
                             <option value="">Select Month</option>
                             <option value="2507">July 2025</option>
@@ -423,7 +429,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="creative-name">Creative Name *</label>
+                        <label for="creative-name">CREATIVE NAME *</label>
                         <select id="creative-name" onchange="checkCreativeOther()">
                             <option value="">Select Creative</option>
                             <option value="Summer Heat Relief">Summer Heat Relief</option>
@@ -439,17 +445,17 @@
                     </div>
                     
                     <div class="form-group" id="creative-other-group" style="display: none;">
-                        <label for="creative-other">Custom Creative Name</label>
+                        <label for="creative-other">CUSTOM CREATIVE NAME</label>
                         <input type="text" id="creative-other" placeholder="e.g., Spring Push or Back to School" onkeyup="generateNames()">
                     </div>
                     
                     <div class="form-group">
-                        <label for="num-creatives">Number of Creatives</label>
+                        <label for="num-creatives">NUMBER OF CREATIVES</label>
                         <input type="number" id="num-creatives" min="1" max="10" value="1" onchange="generateNames()">
                     </div>
                     
                     <div class="form-group">
-                        <label for="end-date">End Date <span style="color:red">*</span></label>
+                        <label for="end-date">END DATE <span style="color:red">*</span></label>
                         <select id="end-date" required onchange="checkEndDateOther()">
                             <option value="">Select End Date</option>
                             <option value="Ends07.31">Ends07.31</option>
@@ -470,13 +476,13 @@
                     </div>
                     
                     <div class="form-group" id="end-date-other-group" style="display: none;">
-                        <label for="end-date-other">Custom End Date</label>
+                        <label for="end-date-other">CUSTOM END DATE</label>
                         <input type="text" id="end-date-other" placeholder="e.g., Ends02.15" onkeyup="generateNames()">
                     </div>
                 </div>
                 
                 <div class="testing-group">
-                    <label>Testing Status:</label>
+                    <label>TESTING STATUS:</label>
                     <div class="checkbox-label">
                         <input type="checkbox" id="test" name="testing" value="Test" onchange="generateNames()">
                         <label for="test">Test</label>
@@ -502,23 +508,29 @@
                 <h4>📚 Quick Reference</h4>
                 <dl>
                     <dt>TOFU</dt>
-                    <dd>Top of Funnel (LALs, Interests, Wiland)</dd>
+                    <dd>Top of Funnel - Cold audiences with no prior interaction (Lookalikes, Interests, Wiland)</dd>
                     <dt>MOFU</dt>
-                    <dd>Middle of Funnel (website retargeting, volunteers, lapsed donors)</dd>
+                    <dd>Middle of Funnel - Warm audiences with some engagement (website retargeting, volunteers, lapsed donors)</dd>
+                    <dt>TOFU/MOFU</dt>
+                    <dd>Combined Top & Middle of Funnel - Campaigns targeting both cold and warm audiences simultaneously</dd>
+                    <dt>MOFU/BOFU</dt>
+                    <dd>Combined Middle & Bottom of Funnel - Campaigns targeting warm prospects and existing supporters together</dd>
                     <dt>BOFU</dt>
-                    <dd>Bottom of Funnel (active single gift donors, monthly donors, & emails)</dd>
+                    <dd>Bottom of Funnel - Hot audiences ready to convert (active single gift donors, monthly donors, email lists)</dd>
+                    <dt>ALL</dt>
+                    <dd>All Funnel Stages - Campaigns targeting the entire funnel from cold prospects to active donors</dd>
                     <dt>Brand</dt>
-                    <dd>People searching for brand terms</dd>
+                    <dd>People searching for brand terms (organization name, specific campaigns)</dd>
                     <dt>NonBrand</dt>
-                    <dd>People searching for non-brand terms</dd>
+                    <dd>People searching for non-brand terms (general cause-related keywords)</dd>
                     <dt>PMax</dt>
-                    <dd>Performance Max (Google automated campaigns)</dd>
+                    <dd>Performance Max - Google's automated campaign type across all inventory</dd>
                     <dt>YouTube</dt>
-                    <dd>YouTube video campaigns</dd>
+                    <dd>YouTube video campaigns - In-stream, discovery, and bumper ads</dd>
                     <dt>EOFY</dt>
-                    <dd>End of Fiscal Year</dd>
+                    <dd>End of Fiscal Year - Year-end giving campaigns</dd>
                     <dt>LG</dt>
-                    <dd>Lead Generation</dd>
+                    <dd>Lead Generation - Campaigns focused on acquiring contact information</dd>
                 </dl>
             </div>
             
@@ -527,25 +539,28 @@
     </div>
 
     <script>
+        // Updated platform configuration based on PDF requirements
         const platformConfig = {
             'Social': {
-                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'ALL'],
+                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'BOFU', 'ALL'],
                 audienceTypes: {
                     'TOFU': ['Lookalikes', 'Interests', 'Wiland'],
                     'MOFU': ['Retarget', 'Lapsed', 'Interests', 'Wiland'],
-                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors'],
-                    'ALL': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors'],
-                    'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors']
+                    'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails'],
+                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'BOFU': ['Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'ALL': []
                 }
             },
             'DSP': {
-                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'ALL'],
+                audiences: ['TOFU', 'MOFU', 'TOFU/MOFU', 'MOFU/BOFU', 'BOFU', 'ALL'],
                 audienceTypes: {
                     'TOFU': ['Lookalikes', 'Interests', 'Wiland'],
                     'MOFU': ['Retarget', 'Lapsed', 'Interests', 'Wiland'],
-                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors'],
-                    'ALL': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors'],
-                    'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails', 'Monthly Donors']
+                    'TOFU/MOFU': ['Lookalikes', 'Retarget', 'Lapsed', 'Interests', 'Wiland', 'Donors & Emails'],
+                    'MOFU/BOFU': ['Retarget', 'Lapsed', 'Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'BOFU': ['Donors & Emails', 'Monthly Donors', 'Interests'],
+                    'ALL': []
                 }
             },
             'Search': {
@@ -564,45 +579,69 @@
             }
         };
 
+        // Targeting details based on PDF specifications
         const targetingDetails = {
             'Donors & Emails': ['Donors 0-12', 'Other'],
             'Lapsed': ['Lapsed 13-25', 'Other'],
-            'Lookalikes': ['LAL 1%', 'Other']
+            'Lookalikes': ['LAL 1% - Pur 180 days', 'Other']
         };
 
-        function updatePlatformOptions() {
-            const platform = document.getElementById('platform').value;
-            const socialPlatformGroup = document.getElementById('social-platform-group');
+        // Update channel options and show/hide platform/tactic fields
+        function updateChannelOptions() {
+            const channel = document.getElementById('channel').value;
+            const platformGroup = document.getElementById('platform-group');
             const tacticGroup = document.getElementById('tactic-group');
             
-            // Show/hide Social platform dropdown
-            if (platform === 'Social') {
-                socialPlatformGroup.style.display = 'block';
+            // Show/hide platform dropdown for Social
+            if (channel === 'Social') {
+                platformGroup.style.display = 'block';
             } else {
-                socialPlatformGroup.style.display = 'none';
-                document.getElementById('social-platform').value = '';
+                platformGroup.style.display = 'none';
+                const platformSelect = document.getElementById('platform');
+                if (platformSelect) {
+                    platformSelect.value = '';
+                }
             }
             
-            // Show/hide DSP tactic dropdown
-            if (platform === 'DSP') {
+            // Show/hide tactic dropdown for DSP
+            if (channel === 'DSP') {
                 tacticGroup.style.display = 'block';
             } else {
                 tacticGroup.style.display = 'none';
-                document.getElementById('tactic').value = '';
+                const tacticSelect = document.getElementById('tactic');
+                if (tacticSelect) {
+                    tacticSelect.value = '';
+                }
             }
             
             updateAudienceOptions();
-            showPlatformRules(platform);
+            showPlatformRules(channel);
         }
 
+        // Update audience dropdown based on channel
         function updateAudienceOptions() {
-            const platform = document.getElementById('platform').value;
+            const channel = document.getElementById('channel').value;
+            const campaign = document.getElementById('campaign').value;
             const audienceSelect = document.getElementById('audience');
+            const campaignCustomGroup = document.getElementById('campaign-custom-group');
+            
+            // Show/hide custom campaign name for Awareness
+            if (campaign === 'Awareness') {
+                campaignCustomGroup.style.display = 'block';
+            } else {
+                campaignCustomGroup.style.display = 'none';
+                const campaignCustom = document.getElementById('campaign-custom');
+                if (campaignCustom) {
+                    campaignCustom.value = '';
+                }
+            }
+            
+            if (!audienceSelect) return;
             
             audienceSelect.innerHTML = '<option value="">Select Audience</option>';
             
-            if (platform && platformConfig[platform]) {
-                platformConfig[platform].audiences.forEach(audience => {
+            if (channel && platformConfig[channel]) {
+                platformConfig[channel].audiences.forEach(audience => {
                     const option = document.createElement('option');
                     option.value = audience;
                     option.textContent = audience;
@@ -613,15 +652,18 @@
             updateAudienceTypeOptions();
         }
 
+        // Update audience type dropdown based on audience selection
         function updateAudienceTypeOptions() {
-            const platform = document.getElementById('platform').value;
+            const channel = document.getElementById('channel').value;
             const audience = document.getElementById('audience').value;
             const audienceTypeSelect = document.getElementById('audience-type');
             
+            if (!audienceTypeSelect) return;
+            
             audienceTypeSelect.innerHTML = '<option value="">Select Type</option>';
             
-            if (platform && audience && platformConfig[platform] && platformConfig[platform].audienceTypes[audience]) {
-                const types = platformConfig[platform].audienceTypes[audience];
+            if (channel && audience && platformConfig[channel] && platformConfig[channel].audienceTypes[audience]) {
+                const types = platformConfig[channel].audienceTypes[audience];
                 types.forEach(type => {
                     const option = document.createElement('option');
                     option.value = type;
@@ -630,21 +672,17 @@
                 });
             }
             
-            // Clear custom targeting details when audience type options change
-            const targetingOtherInput = document.getElementById('targeting-other');
-            if (targetingOtherInput) {
-                targetingOtherInput.value = '';
-                targetingOtherInput.required = false;
-            }
-            
             updateTargetingDetails();
             generateNames();
         }
 
+        // Update targeting details dropdown
         function updateTargetingDetails() {
             const audienceType = document.getElementById('audience-type').value;
             const targetingDetailsGroup = document.getElementById('targeting-details-group');
             const targetingDetailsSelect = document.getElementById('targeting-details');
+            
+            if (!targetingDetailsGroup || !targetingDetailsSelect) return;
             
             targetingDetailsSelect.innerHTML = '<option value="">Select Details</option>';
             
@@ -658,88 +696,102 @@
                 });
             } else {
                 targetingDetailsGroup.style.display = 'none';
-                document.getElementById('targeting-other-group').style.display = 'none';
-            }
-            
-            // Clear custom targeting details when targeting details options change
-            const targetingOtherInput = document.getElementById('targeting-other');
-            if (targetingOtherInput) {
-                targetingOtherInput.value = '';
-                targetingOtherInput.required = false;
+                const targetingOtherGroup = document.getElementById('targeting-other-group');
+                if (targetingOtherGroup) {
+                    targetingOtherGroup.style.display = 'none';
+                }
             }
             
             generateNames();
         }
 
+        // Check for "Other" targeting option
         function checkTargetingOther() {
             const targeting = document.getElementById('targeting-details').value;
             const otherGroup = document.getElementById('targeting-other-group');
             const otherInput = document.getElementById('targeting-other');
             
+            if (!otherGroup || !otherInput) return;
+            
             if (targeting && targeting.includes('Other')) {
                 otherGroup.style.display = 'block';
+                
+                // Set placeholder based on audience type
                 const audienceType = document.getElementById('audience-type').value;
                 if (audienceType === 'Donors & Emails') {
-                    otherInput.placeholder = 'e.g., Donors 0-6';
+                    otherInput.placeholder = 'Donors #-#';
                 } else if (audienceType === 'Lapsed') {
-                    otherInput.placeholder = 'e.g., Lapsed 6-12';
+                    otherInput.placeholder = 'Lapsed ##-##';
                 } else if (audienceType === 'Lookalikes') {
-                    otherInput.placeholder = 'e.g., 5%, 3%, 10%';
+                    otherInput.placeholder = 'LAL ##% - ## days';
                 }
-                // Make field required when Other is selected
-                otherInput.required = true;
             } else {
                 otherGroup.style.display = 'none';
                 otherInput.value = '';
-                otherInput.required = false;
             }
             
             generateNames();
         }
 
+        // Check for "Other" creative option
         function checkCreativeOther() {
             const creative = document.getElementById('creative-name').value;
             const otherGroup = document.getElementById('creative-other-group');
+            
+            if (!otherGroup) return;
             
             if (creative === 'Other') {
                 otherGroup.style.display = 'block';
             } else {
                 otherGroup.style.display = 'none';
-                document.getElementById('creative-other').value = '';
+                const otherInput = document.getElementById('creative-other');
+                if (otherInput) {
+                    otherInput.value = '';
+                }
             }
             
             generateNames();
         }
 
+        // Check for "Other" end date option
         function checkEndDateOther() {
             const endDate = document.getElementById('end-date').value;
             const otherGroup = document.getElementById('end-date-other-group');
+            
+            if (!otherGroup) return;
             
             if (endDate === 'Other') {
                 otherGroup.style.display = 'block';
             } else {
                 otherGroup.style.display = 'none';
-                document.getElementById('end-date-other').value = '';
+                const otherInput = document.getElementById('end-date-other');
+                if (otherInput) {
+                    otherInput.value = '';
+                }
             }
             
             generateNames();
         }
 
+        // Show platform-specific rules
         function showPlatformRules(platform) {
             const rulesDiv = document.getElementById('platform-rules');
             const rulesContent = document.getElementById('rules-content');
+            
+            if (!rulesDiv || !rulesContent) return;
             
             const rules = {
                 'Social': [
                     'TOFU targets cold audiences (LALs, Interests, Wiland)',
                     'MOFU targets warm audiences (retargeting, leads, lapsed)',
-                    'MOFU/BOFU targets both warm and hot audiences',
-                    'ALL can combine multiple audience types'
+                    'BOFU targets hot audiences (donors, monthly donors)',
+                    'TOFU/MOFU can combine multiple audience types',
+                    'Use audience segmentation for better targeting'
                 ],
                 'DSP': [
                     'Uses Line Items and Groups structure',
                     'TOFU/MOFU can be combined for efficiency',
-                    'MOFU/BOFU separate for donor-focused messaging',
+                    'BOFU separate for donor-focused messaging',
                     'Supports Display, Native, Audio, and CTV/OTT tactics'
                 ],
                 'Search': [
@@ -762,9 +814,15 @@
             }
         }
 
+        // Get testing status
         function getTestingStatus() {
-            const test = document.getElementById('test').checked;
-            const control = document.getElementById('control').checked;
+            const testCheckbox = document.getElementById('test');
+            const controlCheckbox = document.getElementById('control');
+            
+            if (!testCheckbox || !controlCheckbox) return '';
+            
+            const test = testCheckbox.checked;
+            const control = controlCheckbox.checked;
             
             if (test && control) return ' Test Control';
             if (test) return ' Test';
@@ -772,124 +830,19 @@
             return '';
         }
 
-        function buildAudienceName() {
-            const client = document.getElementById('client').value;
+        // Main function to generate names
+        function generateNames() {
+            const clientRaw = document.getElementById('client').value;
+            const plan = document.getElementById('plan').value;
+            const channel = document.getElementById('channel').value;
+            const platform = document.getElementById('platform').value; // Social platform (Meta, TikTok, etc.)
+            const tactic = document.getElementById('tactic').value;
+            const campaignSelect = document.getElementById('campaign').value;
+            const campaignCustom = document.getElementById('campaign-custom').value;
+            const audience = document.getElementById('audience').value;
             const audienceType = document.getElementById('audience-type').value;
             const targetingDetailsValue = document.getElementById('targeting-details').value;
             const targetingOther = document.getElementById('targeting-other').value;
-            
-            if (!audienceType || audienceType === 'N/A' || audienceType === 'ALL') return '';
-            
-            // Handle specific targeting details based on spreadsheet mapping
-            let targetingDetail = targetingDetailsValue;
-            if (targetingDetailsValue && targetingDetailsValue.includes('Other')) {
-                // If "Other" is selected but no custom input provided, don't generate name
-                if (!targetingOther || targetingOther.trim() === '') {
-                    return '';
-                }
-                targetingDetail = targetingOther;
-            }
-            
-            // Handle special cases based on your spreadsheet requirements
-            if (audienceType === 'Lookalikes') {
-                if (targetingDetail && targetingDetail !== '' && targetingDetail !== 'Select Details') {
-                    // If custom targeting is provided, use it
-                    if (targetingDetail.includes('LAL')) {
-                        return `${client} ${targetingDetail}`;
-                    } else {
-                        return `${client} LAL ${targetingDetail}`;
-                    }
-                } else {
-                    // Only show default if targeting details are selected
-                    if (targetingDetailsValue && targetingDetailsValue !== '') {
-                        return `${client} Lookalikes 1%`;
-                    }
-                    return '';
-                }
-            }
-            
-            if (audienceType === 'Donors & Emails') {
-                if (targetingDetail && targetingDetail !== '' && targetingDetail !== 'Select Details') {
-                    // Check if time period is specified for custom input
-                    if (targetingDetailsValue && targetingDetailsValue.includes('Other')) {
-                        const input = targetingDetail.toLowerCase();
-                        if (input.includes('months') || input.includes('month')) {
-                            const number = input.replace(/[^0-9-]/g, '');
-                            return `${client} Donors ${number} mo`;
-                        } else if (input.includes('days') || input.includes('day')) {
-                            const number = input.replace(/[^0-9-]/g, '');
-                            return `${client} Donors ${number} days`;
-                        } else {
-                            return 'Error: Please specify Days or Months in Custom Targeting Details';
-                        }
-                    }
-                    // If specific donor targeting is provided (e.g., "Donors 0-12")
-                    if (targetingDetail.includes('Donors')) {
-                        return `${client} ${targetingDetail}`;
-                    } else {
-                        return `${client} Donors ${targetingDetail}`;
-                    }
-                } else {
-                    // Only show default if targeting details are selected
-                    if (targetingDetailsValue && targetingDetailsValue !== '') {
-                        return `${client} Donors 12mo`;
-                    }
-                    return '';
-                }
-            }
-            
-            if (audienceType === 'Lapsed') {
-                if (targetingDetail && targetingDetail !== '' && targetingDetail !== 'Select Details') {
-                    // Check if time period is specified for custom input
-                    if (targetingDetailsValue && targetingDetailsValue.includes('Other')) {
-                        const input = targetingDetail.toLowerCase();
-                        if (input.includes('months') || input.includes('month')) {
-                            const number = input.replace(/[^0-9-]/g, '');
-                            return `${client} Lapsed ${number} mo`;
-                        } else if (input.includes('days') || input.includes('day')) {
-                            const number = input.replace(/[^0-9-]/g, '');
-                            return `${client} Lapsed ${number} days`;
-                        } else {
-                            return 'Error: Please specify Days or Months in Custom Targeting Details';
-                        }
-                    }
-                    // If specific lapsed targeting is provided (e.g., "Lapsed 13-25")
-                    if (targetingDetail.includes('Lapsed')) {
-                        return `${client} ${targetingDetail}`;
-                    } else {
-                        return `${client} Lapsed ${targetingDetail}`;
-                    }
-                } else {
-                    // Only show default if targeting details are selected
-                    if (targetingDetailsValue && targetingDetailsValue !== '') {
-                        return `${client} Lapsed`;
-                    }
-                    return '';
-                }
-            }
-            
-            // For other audience types (Retarget, Interests, Wiland, Monthly Donors, Similar)
-            if (targetingDetail && targetingDetail !== '' && targetingDetail !== 'Select Details') {
-                // Don't include audience type if targeting detail already contains it
-                if (targetingDetail.includes('Lapsed') || targetingDetail.includes('Donors') || targetingDetail.includes('LAL')) {
-                    return `${client} ${targetingDetail}`;
-                } else {
-                    return `${client} ${audienceType} ${targetingDetail}`;
-                }
-            } else if (audienceType) {
-                // Default naming for basic audience types
-                return `${client} ${audienceType}`;
-            }
-            return '';
-        }
-
-        function generateNames() {
-            const client = document.getElementById('client').value;
-            const plan = document.getElementById('plan').value;
-            const platform = document.getElementById('platform').value;
-            const tactic = document.getElementById('tactic').value;
-            const campaign = document.getElementById('campaign').value;
-            const audience = document.getElementById('audience').value;
             const month = document.getElementById('month').value;
             const creativeName = document.getElementById('creative-name').value;
             const creativeOther = document.getElementById('creative-other').value;
@@ -898,154 +851,166 @@
             const endDateOther = document.getElementById('end-date-other').value;
             const testing = getTestingStatus();
 
-            // Start generating names as soon as we have client
-            if (!client) {
-                document.getElementById('results').style.display = 'none';
+            // Append " - AC" to client code if Awareness campaign is selected
+            const client = campaignSelect === 'Awareness' ? `${clientRaw} - AC` : clientRaw;
+
+            // Determine final campaign name
+            const campaign = (campaignSelect === 'Awareness' && campaignCustom) ? campaignCustom : campaignSelect;
+
+            // Check minimum requirements
+            if (!clientRaw || !plan || !channel || !campaign) {
+                const resultsDiv = document.getElementById('results');
+                if (resultsDiv) {
+                    resultsDiv.style.display = 'none';
+                }
                 return;
             }
 
             const finalCreative = creativeName === 'Other' ? creativeOther : creativeName;
             const finalEndDate = endDate === 'Other' ? endDateOther : endDate;
+            
+            if (!month || !finalCreative) {
+                const resultsDiv = document.getElementById('results');
+                if (resultsDiv) {
+                    resultsDiv.style.display = 'none';
+                }
+                return;
+            }
 
             const resultsContent = document.getElementById('results-content');
+            if (!resultsContent) return;
+            
             let html = '';
             
-            // Always show results box when client is selected
-            document.getElementById('results').style.display = 'block';
-            
-            // Generate names based on platform - show what we can based on current selections
-            if (platform && campaign) {
-                if (platform === 'Social') {
-                    // Social platform naming convention
-                    if (plan && audience) {
-                        const campaignName = `${client} ${plan} ${campaign} ${audience}`;
-                        html += `<div class="result-label">Campaign Name:</div>`;
-                        html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}')">Copy</button></div>`;
-                    }
-                    
-                    const audienceType = document.getElementById('audience-type').value;
-                    const targetingDetails = document.getElementById('targeting-details').value;
-                    const audienceName = buildAudienceName();
-                    
-                    // If audience is selected but audience type is not, show simple ad group name
-                    if (audience && !audienceType) {
-                        const adGroupName = `${client} ${audience}`;
-                        html += `<div class="result-label">Ad Group Name:</div>`;
-                        html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}')">Copy</button></div>`;
-                    }
-                    // If audience type is selected but targeting details is not, show ad group name with audience type
-                    else if (audienceType && !targetingDetails && audienceType !== 'N/A') {
-                        const adGroupName = `${client} ${audienceType}`;
-                        html += `<div class="result-label">Ad Group Name:</div>`;
-                        html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}')">Copy</button></div>`;
-                    }
-                    // If we have a complete audience name from buildAudienceName(), show it as Ad Set
-                    else if (audienceName) {
-                        if (audienceName.startsWith('Error:')) {
-                            html += `<div class="result-label">Ad Set (Audience):</div>`;
-                            html += `<div class="result-item" style="color: red; border-left-color: red;">${audienceName}</div>`;
-                        } else {
-                            html += `<div class="result-label">Ad Set (Audience):</div>`;
-                            html += `<div class="result-item">${audienceName}<button class="copy-btn" onclick="copyToClipboard('${audienceName}')">Copy</button></div>`;
-                        }
-                    }
-                    
-                    if (month && finalCreative) {
-                        if (numCreatives > 1) {
-                            html += `<div class="result-label">Ad Names:</div>`;
-                            for (let i = 1; i <= numCreatives; i++) {
-                                const adName = `${month} ${client} ${finalCreative} ${i}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
-                                html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}')">Copy</button></div>`;
-                            }
-                        } else {
-                            html += `<div class="result-label">Ad Name:</div>`;
-                            const adName = `${month} ${client} ${finalCreative}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
-                            html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}')">Copy</button></div>`;
-                        }
-                    }
-                    
-                } else if (platform === 'DSP') {
-                    // DSP platform naming convention
-                    const campaignName = client;
-                    html += `<div class="result-label">Campaign Name:</div>`;
-                    html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}')">Copy</button></div>`;
-                    
-                    if (plan) {
-                        const lineItem = `${client} ${plan} ${campaign}`;
-                        html += `<div class="result-label">Line Item:</div>`;
-                        html += `<div class="result-item">${lineItem}<button class="copy-btn" onclick="copyToClipboard('${lineItem}')">Copy</button></div>`;
-                    }
-                    
-                    if (month && finalCreative) {
-                        if (numCreatives > 1) {
-                            html += `<div class="result-label">Groups:</div>`;
-                            for (let i = 1; i <= numCreatives; i++) {
-                                const groupName = `${month} ${client}${tactic ? ' ' + tactic : ''} ${finalCreative} ${i}${testing}${finalEndDate ? ' ' + finalEndDate : ''}`;
-                                html += `<div class="result-item">${groupName}<button class="copy-btn" onclick="copyToClipboard('${groupName}')">Copy</button></div>`;
-                            }
-                        } else {
-                            html += `<div class="result-label">Group:</div>`;
-                            const groupName = `${month} ${client}${tactic ? ' ' + tactic : ''} ${finalCreative}${testing}${finalEndDate ? ' ' + finalEndDate : ''}`;
-                            html += `<div class="result-item">${groupName}<button class="copy-btn" onclick="copyToClipboard('${groupName}')">Copy</button></div>`;
-                        }
-                    }
-                    
-                    const audienceName = buildAudienceName();
-                    if (audienceName && audience) {
-                        if (audienceName.startsWith('Error:')) {
-                            html += `<div class="result-label">Tactic:</div>`;
-                            html += `<div class="result-item" style="color: red; border-left-color: red;">${audienceName}</div>`;
-                        } else {
-                            const tacticName = `${audienceName} ${audience}`;
-                            html += `<div class="result-label">Tactic:</div>`;
-                            html += `<div class="result-item">${tacticName}<button class="copy-btn" onclick="copyToClipboard('${tacticName}')">Copy</button></div>`;
-                        }
-                    }
-                    
-                } else if (platform === 'Search' || platform === 'YouTube') {
-                    // Search/YouTube platform naming convention
-                    if (plan && audience) {
-                        const campaignName = `${client} ${plan} ${campaign} ${audience}`;
-                        html += `<div class="result-label">Campaign Name:</div>`;
-                        html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}')">Copy</button></div>`;
-                    }
-                    
-                    const audienceName = buildAudienceName() || `${client} All Audiences`;
-                    if (audienceName) {
-                        if (audienceName.startsWith('Error:')) {
-                            html += `<div class="result-label">Ad Group Name:</div>`;
-                            html += `<div class="result-item" style="color: red; border-left-color: red;">${audienceName}</div>`;
-                        } else {
-                            html += `<div class="result-label">Ad Group Name:</div>`;
-                            html += `<div class="result-item">${audienceName}<button class="copy-btn" onclick="copyToClipboard('${audienceName}')">Copy</button></div>`;
-                        }
-                    }
-                    
-                    if (month && finalCreative) {
-                        if (numCreatives > 1) {
-                            html += `<div class="result-label">Ad Names:</div>`;
-                            for (let i = 1; i <= numCreatives; i++) {
-                                const adName = `${month} ${client} ${finalCreative} ${i}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
-                                html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}')">Copy</button></div>`;
-                            }
-                        } else {
-                            html += `<div class="result-label">Ad Name:</div>`;
-                            const adName = `${month} ${client} ${finalCreative}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
-                            html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}')">Copy</button></div>`;
-                        }
-                    }
+            // Helper function to build audience name
+            function buildAudienceName() {
+                if (!audienceType || audienceType === 'N/A' || audienceType === 'ALL') return '';
+                
+                let targetingDetail = targetingDetailsValue;
+                if (targetingDetailsValue && targetingDetailsValue.includes('Other')) {
+                    targetingDetail = targetingOther;
                 }
-            } else if (client) {
-                // Show basic structure when only client is selected
-                html += `<div class="result-label">Select platform and campaign to see more options...</div>`;
+                
+                if (targetingDetail && targetingDetail !== '' && targetingDetail !== 'Select Details') {
+                    // Don't include audience type if targeting detail already contains it
+                    if (targetingDetail.includes('Lapsed') || targetingDetail.includes('Donors') || targetingDetail.includes('LAL')) {
+                        return `${client} ${targetingDetail}`;
+                    } else {
+                        return `${client} ${audienceType} ${targetingDetail}`;
+                    }
+                } else if (audienceType) {
+                    return `${client} ${audienceType}`;
+                }
+                return '';
+            }
+
+            // Generate names based on channel
+            if (channel === 'Social') {
+                // Social channel naming convention
+                const campaignName = `${client} ${plan} ${campaign} ${audience}`;
+                const audienceName = buildAudienceName();
+                
+                html += `<div class="result-label">Campaign Name:</div>`;
+                html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}', event)">Copy</button></div>`;
+                
+                if (audienceName) {
+                    html += `<div class="result-label">Ad Set (Audience):</div>`;
+                    html += `<div class="result-item">${audienceName}<button class="copy-btn" onclick="copyToClipboard('${audienceName}', event)">Copy</button></div>`;
+                }
+                
+                if (numCreatives > 1) {
+                    html += `<div class="result-label">Ad Names:</div>`;
+                    for (let i = 1; i <= numCreatives; i++) {
+                        const adName = `${month} ${client} ${finalCreative} ${i}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
+                        html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}', event)">Copy</button></div>`;
+                    }
+                } else {
+                    html += `<div class="result-label">Ad Name:</div>`;
+                    const adName = `${month} ${client} ${finalCreative}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
+                    html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}', event)">Copy</button></div>`;
+                }
+                
+            } else if (channel === 'DSP') {
+                // DSP channel naming convention
+                const campaignName = client;
+                const lineItem = `${client} ${plan} ${campaign}`;
+                
+                html += `<div class="result-label">Campaign Name:</div>`;
+                html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}', event)">Copy</button></div>`;
+                
+                html += `<div class="result-label">Line Item:</div>`;
+                html += `<div class="result-item">${lineItem}<button class="copy-btn" onclick="copyToClipboard('${lineItem}', event)">Copy</button></div>`;
+                
+                if (numCreatives > 1) {
+                    html += `<div class="result-label">Groups:</div>`;
+                    for (let i = 1; i <= numCreatives; i++) {
+                        const groupName = `${month} ${client}${tactic ? ' ' + tactic : ''} ${finalCreative} ${i}${testing}${finalEndDate ? ' ' + finalEndDate : ''}`;
+                        html += `<div class="result-item">${groupName}<button class="copy-btn" onclick="copyToClipboard('${groupName}', event)">Copy</button></div>`;
+                    }
+                } else {
+                    html += `<div class="result-label">Group:</div>`;
+                    const groupName = `${month} ${client}${tactic ? ' ' + tactic : ''} ${finalCreative}${testing}${finalEndDate ? ' ' + finalEndDate : ''}`;
+                    html += `<div class="result-item">${groupName}<button class="copy-btn" onclick="copyToClipboard('${groupName}', event)">Copy</button></div>`;
+                }
+                
+                const audienceName = buildAudienceName();
+                if (audienceName && audience) {
+                    const tacticName = `${audienceName} ${audience}`;
+                    html += `<div class="result-label">Tactic:</div>`;
+                    html += `<div class="result-item">${tacticName}<button class="copy-btn" onclick="copyToClipboard('${tacticName}', event)">Copy</button></div>`;
+                }
+                
+            } else if (channel === 'Search') {
+                // Search channel naming convention
+                const campaignName = `${client} ${plan} ${campaign} ${audience}`;
+                const adGroupName = `${client} ${audience ? audience : 'All Audiences'} | ${finalCreative}`;
+                
+                html += `<div class="result-label">Campaign Name:</div>`;
+                html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}', event)">Copy</button></div>`;
+                
+                html += `<div class="result-label">Ad Group Name:</div>`;
+                html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}', event)">Copy</button></div>`;
+                
+                html += `<div class="result-label">Ad Label (optional):</div>`;
+                const adLabel = `${month} ${finalCreative}`;
+                html += `<div class="result-item">${adLabel}<button class="copy-btn" onclick="copyToClipboard('${adLabel}', event)">Copy</button></div>`;
+                
+            } else if (channel === 'YouTube') {
+                // YouTube channel naming convention
+                const campaignName = `${client} ${plan} | ${audience ? audience : 'YouTube'}`;
+                const adGroupName = `${month} ${client} ${campaign}`;
+                
+                html += `<div class="result-label">Campaign Name:</div>`;
+                html += `<div class="result-item">${campaignName}<button class="copy-btn" onclick="copyToClipboard('${campaignName}', event)">Copy</button></div>`;
+                
+                html += `<div class="result-label">Ad Group Name:</div>`;
+                html += `<div class="result-item">${adGroupName}<button class="copy-btn" onclick="copyToClipboard('${adGroupName}', event)">Copy</button></div>`;
+                
+                if (numCreatives > 1) {
+                    html += `<div class="result-label">Ad Names:</div>`;
+                    for (let i = 1; i <= numCreatives; i++) {
+                        const adName = `${month} ${client} ${finalCreative} ${i}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
+                        html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}', event)">Copy</button></div>`;
+                    }
+                } else {
+                    html += `<div class="result-label">Ad Name:</div>`;
+                    const adName = `${month} ${client} ${finalCreative}${testing}${finalEndDate ? '_' + finalEndDate : ''}`;
+                    html += `<div class="result-item">${adName}<button class="copy-btn" onclick="copyToClipboard('${adName}', event)">Copy</button></div>`;
+                }
             }
             
             resultsContent.innerHTML = html;
+            const resultsDiv = document.getElementById('results');
+            if (resultsDiv) {
+                resultsDiv.style.display = 'block';
+            }
         }
 
+        // Reset form function
         function resetForm() {
+            // Reset all form fields
             const fields = [
-                'client', 'plan', 'platform', 'social-platform', 'tactic', 'campaign', 'audience', 
+                'client', 'plan', 'channel', 'platform', 'tactic', 'campaign', 'campaign-custom', 'audience', 
                 'audience-type', 'targeting-details', 'targeting-other', 'month', 
                 'creative-name', 'creative-other', 'end-date', 'end-date-other'
             ];
@@ -1057,44 +1022,69 @@
                 }
             });
             
-            document.getElementById('num-creatives').value = '1';
-            document.getElementById('test').checked = false;
-            document.getElementById('control').checked = false;
+            const numCreativesField = document.getElementById('num-creatives');
+            if (numCreativesField) {
+                numCreativesField.value = '1';
+            }
             
+            const testCheckbox = document.getElementById('test');
+            const controlCheckbox = document.getElementById('control');
+            if (testCheckbox) testCheckbox.checked = false;
+            if (controlCheckbox) controlCheckbox.checked = false;
+            
+            // Hide conditional fields
             const conditionalGroups = [
-                'social-platform-group', 'tactic-group', 'targeting-details-group', 'targeting-other-group',
+                'platform-group', 'tactic-group', 'campaign-custom-group', 'targeting-details-group', 'targeting-other-group',
                 'creative-other-group', 'end-date-other-group'
             ];
             
             conditionalGroups.forEach(groupId => {
-                document.getElementById(groupId).style.display = 'none';
+                const group = document.getElementById(groupId);
+                if (group) {
+                    group.style.display = 'none';
+                }
             });
             
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('platform-rules').style.display = 'none';
+            // Hide results and rules
+            const resultsDiv = document.getElementById('results');
+            const rulesDiv = document.getElementById('platform-rules');
+            if (resultsDiv) resultsDiv.style.display = 'none';
+            if (rulesDiv) rulesDiv.style.display = 'none';
             
-            document.getElementById('audience').innerHTML = '<option value="">Select Audience</option>';
-            document.getElementById('audience-type').innerHTML = '<option value="">Select Type</option>';
-        }
-
-        function copyToClipboard(text) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    const btn = event.target;
-                    const originalText = btn.textContent;
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                    }, 1000);
-                }).catch(err => {
-                    fallbackCopyToClipboard(text);
-                });
-            } else {
-                fallbackCopyToClipboard(text);
+            // Clear audience dropdowns
+            const audienceSelect = document.getElementById('audience');
+            const audienceTypeSelect = document.getElementById('audience-type');
+            if (audienceSelect) {
+                audienceSelect.innerHTML = '<option value="">Select Audience</option>';
+            }
+            if (audienceTypeSelect) {
+                audienceTypeSelect.innerHTML = '<option value="">Select Type</option>';
             }
         }
 
-        function fallbackCopyToClipboard(text) {
+        // Copy to clipboard function
+        function copyToClipboard(text, event) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    // Visual feedback
+                    if (event && event.target) {
+                        const btn = event.target;
+                        const originalText = btn.textContent;
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                        }, 1000);
+                    }
+                }).catch(err => {
+                    fallbackCopyToClipboard(text, event);
+                });
+            } else {
+                fallbackCopyToClipboard(text, event);
+            }
+        }
+
+        // Fallback copy method for older browsers
+        function fallbackCopyToClipboard(text, event) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
             textarea.style.position = 'fixed';
@@ -1104,12 +1094,14 @@
             
             try {
                 document.execCommand('copy');
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 1000);
+                if (event && event.target) {
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                    }, 1000);
+                }
             } catch (err) {
                 console.error('Failed to copy:', err);
             }
